@@ -39,6 +39,7 @@ export function shoppingReducer(state, action) {
     case TYPES.REMOVE_ALL_FROM_CART: {
     }
     case TYPES.CLEAR_CART: {
+      return shoppingInitialState;
     }
     default:
       return state;
