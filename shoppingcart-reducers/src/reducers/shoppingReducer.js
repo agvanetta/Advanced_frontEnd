@@ -35,8 +35,32 @@ export function shoppingReducer(state, action) {
       // retorna el estado ;pero en la propiedad cart es igual a ["...state", agregale "newItem"] spreadOperator
     }
     case TYPES.REMOVE_ONE_FROM_CART: {
+      let itemToDelete = state.cart.find((item) => item.id === action.payload);
+      // buscar en state, en cart, "find" => por cada item evalua si son iguales al action.payload, que envia un ID.
+
+      return itemToDelete.quantity > 1
+        ? {
+            ...state,
+            // ...state = copia del estado anterior con spreadOperator
+            cart: state.cart.map((item) =>
+              item.id === action.payload
+                ? { ...item, quantity: item.quantity - 1 }
+                : item
+            ),
+            // ...item, quantity:item.quantity-1 => trae el item, pero modificale el quantity en "xxx..."
+          }
+        : {
+            ...state,
+            cart: state.cart.filter((item) => item.id !== action.payload),
+            // filter= permite filtrar y eliminar elementos, x cada item que coincida lo elimina, "lo filtra"
+            // cuando sean diferentes lo agrega, por lo tanto excluye al que es igual
+          };
     }
     case TYPES.REMOVE_ALL_FROM_CART: {
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload),
+      };
     }
     case TYPES.CLEAR_CART: {
       return shoppingInitialState;
