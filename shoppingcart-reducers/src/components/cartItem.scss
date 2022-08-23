@@ -1,0 +1,12 @@
+$primary-color: #22cb07;
+$secondary-color : #333;
+$third-color: white;
+
+.cartItem{
+    background-color: $third-color;
+    color: $secondary-color;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid red;
+    width: 200px;
+}
