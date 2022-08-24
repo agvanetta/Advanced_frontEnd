@@ -1,0 +1,18 @@
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.box__cart{
+    display: flex;
+    flex-direction: column;
+}
+
+.box__cart__items{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
