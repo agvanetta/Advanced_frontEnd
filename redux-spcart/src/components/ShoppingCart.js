@@ -4,7 +4,6 @@ import {
   clearCart,
   deleteFromCart,
 } from "../actions/ShoppingActions";
-import { ADD_TO_CART } from "../types";
 import CartItem from "./CartItem";
 import ProductItem from "./ProductItem";
 import "./shoppingCart.scss";
